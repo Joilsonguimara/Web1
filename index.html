@@ -1,23 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Jr Sistemas</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <meta charset="UTF-8">
+
+    <!-- ESSENCIAL: faz o site se adaptar ao tamanho da tela -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JR Sistemas</title>
+
+    <!-- Ligação com o CSS -->
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
-
+    <!-- ===== NAVBAR (barra superior fixa) ===== -->
     <header class="navbar">
+
+        <!-- Container centraliza o conteúdo -->
         <div class="container">
+
+            <!-- Logo + nome -->
             <div class="logo">
-                <img src="logo/logo JR.png" alt="JR Sistemas">
+                <!-- Você pode trocar por uma imagem -->
+                <img src="logo/logo JR.png" alt="Logo JR">
                 <span>JR SISTEMAS</span>
             </div>
 
+            <!-- Botão hamburguer (aparece só no celular) -->
+            <div class="menu-toggle" onclick="toggleMenu()">
+                ☰
+            </div>
+
+            <!-- Menu de navegação -->
             <nav>
                 <ul class="menu">
                     <li><a href="#">Página inicial</a></li>
@@ -28,10 +42,22 @@
                     <li><a href="#">Downloads</a></li>
                 </ul>
             </nav>
+
         </div>
     </header>
-    
 
-    
+    <!-- Conteúdo do site -->
+    <section class="conteudo">
+        <h1>Bem-vindo ao site</h1>
+        <p>Seu conteúdo começa aqui...</p>
+    </section>
+
+    <!-- JavaScript para abrir/fechar o menu no celular -->
+    <script>
+        function toggleMenu() {
+            document.querySelector(".menu").classList.toggle("active");
+        }
+    </script>
+
 </body>
 </html>

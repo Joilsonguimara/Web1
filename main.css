@@ -1,35 +1,44 @@
-/* Reset básico */
+/* ===== RESET BÁSICO ===== */
+/* Remove margens e paddings padrão do navegador */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Barra fixa */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: white;
-    border-bottom: 1px solid #ddd;
-    z-index: 1000;
+/* ===== ESTILO GERAL DO BODY ===== */
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 80px; /* Evita que o conteúdo fique escondido atrás da navbar */
 }
 
-/* Container centralizado */
+/* ===== NAVBAR (barra fixa no topo) ===== */
+.navbar {
+    position: fixed; /* Faz a barra ficar fixa */
+    top: 0; /* Cola no topo */
+    width: 100%; /* Ocupa toda a largura */
+    background: white;
+    border-bottom: 1px solid #ddd;
+    z-index: 1000; /* Garante que fique acima do resto */
+}
+
+/* ===== CONTAINER ===== */
+/* Centraliza o conteúdo e limita largura */
 .container {
     max-width: 1200px;
     margin: auto;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 15px 20px;
+
+    display: flex; /* Coloca itens lado a lado */
+    justify-content: space-between; /* Espaço entre logo e menu */
+    align-items: center; /* Alinha verticalmente */
 }
 
-/* Logo */
+/* ===== LOGO ===== */
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 10px; /* Espaço entre imagem e texto */
 }
 
 .logo img {
@@ -41,10 +50,10 @@
     font-size: 18px;
 }
 
-/* Menu */
+/* ===== MENU DESKTOP ===== */
 .menu {
-    list-style: none;
-    display: flex;
+    list-style: none; /* Remove bolinhas da lista */
+    display: flex; /* Deixa os itens em linha */
     gap: 20px;
 }
 
@@ -55,12 +64,56 @@
     transition: 0.3s;
 }
 
-/* Efeito hover */
+/* Efeito ao passar o mouse */
 .menu li a:hover {
     color: #007BFF;
 }
 
-/* Espaço para não esconder conteúdo */
-body {
-    padding-top: 70px;
+/* ===== BOTÃO HAMBURGUER ===== */
+.menu-toggle {
+    display: none; /* Escondido no desktop */
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* ===== CONTEÚDO ===== */
+.conteudo {
+    padding: 20px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+/* Quando a tela for menor que 768px (celular) */
+@media (max-width: 768px) {
+
+    /* Mostra o botão hamburguer */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Menu vira vertical e fica escondido */
+    .menu {
+        display: none; /* Escondido inicialmente */
+        flex-direction: column; /* Itens um abaixo do outro */
+
+        position: absolute;
+        top: 70px;
+        right: 0;
+
+        background: rgb(208, 208, 209);
+        width: 220px;
+
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    /* Quando clicar no botão */
+    .menu.active {
+        display: flex; /* Mostra o menu */
+    }
+
+    /* Espaçamento dos itens no mobile */
+    .menu li {
+        padding: 1px 0;
+        border-bottom: 1px solid #eee;
+    }
 }
